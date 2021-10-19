@@ -1,0 +1,19 @@
+@import '../../assets/scss/abstracts.scss';
+
+[id=nav] {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  top: 0;
+  padding: 30px;
+  text-align: right;
+  a {
+    display: inline-block;
+    font-weight: bold;
+    color: $text-color;
+    margin: 0 0 0 10px;
+    &.active {
+      color: $link-color;
+    }
+  }
+}

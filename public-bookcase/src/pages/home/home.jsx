@@ -2,7 +2,7 @@ import './home.scss';
 
 function HomePage() {
   return (
-        <div className="home">
+        <div id="home" className="home">
             <div className="home-container">
                 <div className="title">
                 <h1>
@@ -13,6 +13,9 @@ function HomePage() {
                 </h1>
             </div>
             <p>Autogestion citoyennes des boites a livres sur la region d’andennes</p>
+            <div className="btn loading">
+                <i className="fas fa-spinner"></i> Chargement
+            </div>
             <a href="/map" className="btn btn-effect"> Afficher la carte </a>
             </div>
         </div>

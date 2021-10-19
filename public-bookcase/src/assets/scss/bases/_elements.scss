@@ -1,0 +1,50 @@
+.btn-effect{
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    z-index:10;
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        z-index: -12;
+        opacity: 1;
+        background: $main-color;
+        width: 0%;
+        height: 100%;
+        top: 0;
+        bottom: 50%;
+        left: -10%;
+        transform-origin: left top;
+        transform: skewX(-20deg);
+        transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow:2px 0px 14px rgba(0,0,0,.6);
+    }
+    &::after {
+        content: '';
+        width: 0%;
+        height: 100%;
+        display: block;
+        background: $main-color-alpha;
+        position: absolute;
+        transform: skewX(-20deg);
+        left: -10%;
+        opacity: 0;
+        top: 0;
+        z-index: -15;
+        transition: all .4s cubic-bezier(.2,.95,.57,.99);
+        box-shadow: 2px 0px 14px rgba(0,0,0,.6);
+    }
+    &:hover::before {
+        transform-origin: right top;
+        transform: scale(1, 1)
+    }
+    &:hover::before, &:hover::before{
+        opacity:1;
+        width: 116%;
+    }
+    &:hover::after, &:hover::after{
+        opacity:1;
+        width: 120%;
+    }
+}

@@ -1,12 +1,12 @@
-@import './assets/scss/fonts.scss';
-@import './assets/scss/abstracts.scss';
-@import './assets/scss/main.scss';
+@import "./assets/scss/fonts.scss";
+@import "./assets/scss/abstracts.scss";
+@import "./assets/scss/main.scss";
 
-[id=app] {
-    min-height: 100vh;
-    font-family: $font-stack;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: $mid-grey;
-    text-align: center;
-    color: $text-color;
+[id="app"] {
+  min-height: 100vh;
+  font-family: $font-stack;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: $mid-grey;
+  text-align: center;
+  color: $text-color;
 }

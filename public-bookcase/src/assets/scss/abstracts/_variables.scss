@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 /// Regular font family
-$font-stack: 'Open Sans', sans-serif;
+$font-stack: "Open Sans", sans-serif;
 $font-script: cursive;
 
 /// Colors
@@ -34,8 +34,8 @@ $max-width: 1140px !default;
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-  'smaller': 520px,
-  'small': 769px,
-  'medium': 992px,
-  'large': 1200px,
+  "smaller": 520px,
+  "small": 769px,
+  "medium": 992px,
+  "large": 1200px,
 ) !default;

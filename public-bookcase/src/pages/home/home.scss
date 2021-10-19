@@ -1,51 +1,55 @@
-@import '../../assets/scss/fonts.scss';
-@import '../../assets/scss/abstracts.scss';
+@import "../../assets/scss/fonts.scss";
+@import "../../assets/scss/abstracts.scss";
 
-.home{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+.home {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
-.home-container{
-    width: 380px;
-    @include respond-to(small) {
-        width: 600px;
-    }
-    max-width: 90%;
-    height: auto;
+.home-container {
+  width: 380px;
+  @include respond-to(small) {
+    width: 600px;
+  }
+  max-width: 90%;
+  height: auto;
 }
 
-.btn{
-    width: auto;
-    display: inline-block;
-    line-height: normal;
-    padding: 1em 2em;
-    margin: 1em 0;
-    color: $white;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    border: 1px solid $text-color;
-    border-radius: 5px;
-    background: $text-color;
+.btn {
+  width: auto;
+  display: inline-block;
+  line-height: normal;
+  padding: 1em 2em;
+  margin: 1em 0;
+  color: $white;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid $text-color;
+  border-radius: 5px;
+  background: $text-color;
 }
 @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-.loading{
-    background: rgba($text-color, .75);
-    i{
-        animation: rotate 2s linear infinite;
-    }
+.loading {
+  background: rgba($text-color, 0.75);
+  i {
+    animation: rotate 2s linear infinite;
+  }
 }
 
 /* Title */
 
-.title{
+.title {
   overflow: hidden;
   padding-top: 2em;
   font-size: 7px;
@@ -55,7 +59,7 @@
   h1 {
     line-height: 1em;
     border: solid $text-color;
-    border-width: 0 .45em .45em;
+    border-width: 0 0.45em 0.45em;
     position: relative;
     padding: 0 1.5em;
     strong {
@@ -64,25 +68,25 @@
       position: relative;
       margin-top: 0;
       font-weight: 800;
-      &::before{
+      &::before {
         content: "";
         border: solid $text-color;
-        border-width: .45em 0 0;
+        border-width: 0.45em 0 0;
         width: 1000%;
         position: absolute;
         right: 105%;
         top: 0;
       }
-      &::after{
+      &::after {
         content: "";
         border: solid $text-color;
-        border-width: .45em 0 0;
+        border-width: 0.45em 0 0;
         width: 1000%;
         position: absolute;
         left: 105%;
         top: 0;
       }
-      & > span{
+      & > span {
         text-transform: uppercase;
         font-size: 3em;
       }
@@ -91,7 +95,7 @@
       font-size: 1em;
       display: block;
       font-weight: 300;
-      padding: .5em 0;
+      padding: 0.5em 0;
     }
   }
 }

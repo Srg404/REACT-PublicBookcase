@@ -1,5 +1,5 @@
 import './titles.scss';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function Titles({ title, subTitle }) {
   return (

@@ -2,8 +2,12 @@ import './map.scss';
 
 import Titles from '../../components/titles/titles';
 import DisplayMap from '../../components/display-map/display-map';
+import { useAxios } from '../../utils/useAxios';
+import Sidebar from '../../components/sidebar/sidebar';
 
 function MapPage() {
+
+  const { status, data } = useAxios('https://www.odwb.be/explore/dataset/emplacements-des-boites-a-livres-dandenne/download/?format=json&timezone=Europe/Berlin&lang=fr')
 
   return (
     <div id="map" className="map">
@@ -11,10 +15,8 @@ function MapPage() {
         title="Andenne"
         subTitle="Boites à livres"
       />
-      <div className="sidebar">
-        [Sidebar]
-      </div>
-      <DisplayMap />
+      <Sidebar  status={status} data={data}/>
+      <DisplayMap status={status} data={data}/>
     </div>
   );
 }

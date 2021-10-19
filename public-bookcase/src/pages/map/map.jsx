@@ -1,17 +1,9 @@
 import './map.scss';
-import pinImg from '../../assets/images/pin.svg';
 import Titles from '../../components/titles/titles';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-
+import { iconCustom } from './icon-custom';
 function MapPage() {
-
-  const iconPerson = new L.Icon({
-    iconUrl: pinImg,
-    iconSize: [32, 40],
-    iconAnchor: [16, 40],
-  });
 
   return (
     <div id="map" className="map">
@@ -30,7 +22,12 @@ function MapPage() {
           />
           <Marker 
             position={[50.489, 5.095]}
-            icon= { iconPerson }
+            icon= { iconCustom }
+            >
+          </Marker>
+          <Marker 
+            position={[50.480, 5.090]}
+            icon= { iconCustom }
             >
           </Marker>
         </MapContainer>

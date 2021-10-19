@@ -1,4 +1,5 @@
 import './home.scss';
+import { NavLink } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -16,7 +17,10 @@ function HomePage() {
             <div className="btn loading">
                 <i className="fas fa-spinner"></i> Chargement
             </div>
-            <a href="/map" className="btn btn-effect"> Afficher la carte </a>
+            <NavLink 
+                to="/map"
+                className="btn btn-effect"
+            >Afficher la carte</NavLink>
             </div>
         </div>
   );

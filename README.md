@@ -6,5 +6,3 @@ We suggest that you begin by typing:
 
   cd public-bookcase
   yarn start OR npm start
-
-Happy hacking!

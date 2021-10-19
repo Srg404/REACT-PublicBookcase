@@ -10,7 +10,7 @@ function HomePage() {
           title="Andenne"
           subTitle="Boites à livres"
         />
-        <p>Autogestion citoyennes des boites a livres sur la region d’andennes</p>
+        <p>Autogestion citoyennes des boites a livres sur la region d’andenne</p>
         {/* <div className="btn loading">
           <i className="fas fa-spinner"></i> Chargement
         </div>

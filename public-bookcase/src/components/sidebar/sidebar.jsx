@@ -3,6 +3,7 @@ import './sidebar.scss';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import ItemList from '../item-list/item-list';
+import SearchList from '../search-list/search-list';
 
 function Sidebar({ status, data }) {
   
@@ -56,24 +57,11 @@ function Sidebar({ status, data }) {
   return (
     <div className="sidebar">
       <div className="list-bookcase">
-        <div className="search">
-          <input
-            type="search"
-            className="form-search"
-            id="search-list"
-            aria-describedby="search Address"
-            placeholder="Recherche par adresse"
-            value={searchValue}
-            onChange={searchFilter}
+        <SearchList 
+          searchValue={searchValue} 
+          searchFilter={searchFilter} 
+          searchReset={searchReset}
           />
-          <button
-            className="reset"
-            onClick={searchReset}
-          >
-            <i className="fas fa-times"></i>
-            <span>Effacer</span>
-          </button>
-        </div>
         <ul >
           {ListJSX}
         </ul>

@@ -1,0 +1,21 @@
+.search{
+  width: 100%;
+  position: relative;
+  input{
+    width: 100%;
+    padding-right: 35px;
+  }
+  button{
+    padding: 0;
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    bottom: 20px;
+    width: 30px;
+  }
+  span{
+    display: none;
+  }
+}

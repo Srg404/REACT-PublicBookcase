@@ -1,0 +1,12 @@
+@import "../../assets/scss/abstracts.scss";
+
+.element-list {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $text-color;
+  padding: 5px 0;
+  span {
+    flex-grow: 2;
+    padding: 2px 5px;
+  }
+}

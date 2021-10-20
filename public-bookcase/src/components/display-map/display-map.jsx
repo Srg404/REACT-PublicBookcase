@@ -7,6 +7,16 @@ import { iconCustom } from './icon-custom';
 
 function DisplayMap({ status, data }) {
 
+  const MarkersJSX = data.map(
+    (bookCase) => (
+      <Marker
+        key={bookCase.recordid}
+        position={bookCase.fields.geo_point_2d}
+        icon={iconCustom}
+      ></Marker>
+    )
+  );
+
   if (status === 'waiting') return (
     <div className="display-map">
       <p>Chargement...</p>
@@ -15,7 +25,7 @@ function DisplayMap({ status, data }) {
 
   if (status === 'error') return (
     <div className="display-map">
-      <p>Une erreur malencontrueuse c'est produit veuillez recharger la page ! </p>
+      <p>Une erreur malencontreuse c'est produit, veuillez recharger la page !</p>
     </div>
   );
 
@@ -25,13 +35,7 @@ function DisplayMap({ status, data }) {
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {data.map((bookCase) => (
-          <Marker
-            key={bookCase.recordid}
-            position={bookCase.fields.geo_point_2d}
-            icon={iconCustom}
-          ></Marker>
-        ))}
+        {MarkersJSX}
       </MapContainer>
     </div>
   )

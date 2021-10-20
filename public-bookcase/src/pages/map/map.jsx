@@ -4,6 +4,7 @@ import Titles from '../../components/titles/titles';
 import DisplayMap from '../../components/display-map/display-map';
 import { useAxios } from '../../utils/useAxios';
 import Sidebar from '../../components/sidebar/sidebar';
+import BookcaseContextProvider from '../../components/bookcase-context-provider/bookcase-context-provider';
 
 function MapPage() {
 
@@ -15,11 +16,12 @@ function MapPage() {
         title="Andenne"
         subTitle="Boites à livres"
       />
-      <Sidebar  status={status} data={data}/>
-      <DisplayMap status={status} data={data}/>
+      <BookcaseContextProvider>
+        <Sidebar  status={status} data={data}/>
+        <DisplayMap status={status} data={data}/>
+      </BookcaseContextProvider>
     </div>
   );
 }
 
 export default MapPage;
-

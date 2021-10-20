@@ -10,7 +10,6 @@ export function useAxios(baseURL) {
     useEffect(() => {
         axios.get(baseURL)
           .then((response) => {
-            console.log(response.data);
             setData(response.data);
             setStatus('done');
           })

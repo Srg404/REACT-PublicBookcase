@@ -1,14 +1,18 @@
 import './sidebar.scss';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import ItemList from '../item-list/item-list';
 
 function Sidebar({ status, data }) {
-
+  
   const [searchValue, setSearchValue] = useState(''); 
   const [resultData, setResultData] = useState(data); 
   
+  useEffect(() => {
+    setResultData(data);
+  }, [data]);
+
   const ListJSX = resultData.map(
     (bookCase) => (
       <ItemList

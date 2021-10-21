@@ -17,12 +17,31 @@ function Sidebar({ status, data }) {
     // eslint-disable-next-line
   }, [data]);
 
+
+  const onHover = (value) => {
+    let results = [];
+    if (value){
+      result.forEach((item) => {
+        item.recordid === value && (item.active=true);
+        // old syntax : if (item.recordid === value) {item.active=true};
+        results.push(item);
+      })      
+    } else {
+      result.forEach((item) => {
+        item.active=false;
+        results.push(item);
+      })    
+    }
+    setContextResult(results);
+  }
+
   const ListJSX = result.map(
     (bookCase) => (
       <ItemList
         key={bookCase.recordid}
         id={bookCase.recordid}
         name={bookCase.fields.name}
+        onHover={onHover}
       />
     )
   );

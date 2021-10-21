@@ -9,8 +9,8 @@ const iconCustom = new L.Icon({
 
 const iconCustomActive = new L.Icon({
     iconUrl: pinImg,
-    iconSize: [40, 50],
-    iconAnchor: [20, 50],
+    iconSize: [50, 63],
+    iconAnchor: [25, 63],
 });
 
 export { iconCustom, iconCustomActive };

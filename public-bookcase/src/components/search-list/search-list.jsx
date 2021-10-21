@@ -1,13 +1,8 @@
 import './search-list.scss';
 
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import {BookcaseContext} from '../bookcase-context-provider/bookcase-context-provider';
-
 
 function SearchList({ searchValue, searchFilter, searchReset }) {
-
-  const { test } = useContext(BookcaseContext);
 
   return (
     <div className="search">
@@ -27,7 +22,6 @@ function SearchList({ searchValue, searchFilter, searchReset }) {
         <i className="fas fa-times"></i>
         <span>Effacer</span>
       </button>
-      {test}
     </div>
   );
 }

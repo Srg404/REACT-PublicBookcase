@@ -5,6 +5,7 @@ import DisplayMap from '../../components/display-map/display-map';
 import { useAxios } from '../../utils/useAxios';
 import Sidebar from '../../components/sidebar/sidebar';
 import BookcaseContextProvider from '../../components/bookcase-context-provider/bookcase-context-provider';
+import Modal from '../../components/modal/modal';
 
 function MapPage() {
 
@@ -19,6 +20,7 @@ function MapPage() {
       <BookcaseContextProvider>
         <Sidebar  status={status} data={data}/>
         <DisplayMap status={status} data={data}/>
+        <Modal />
       </BookcaseContextProvider>
     </div>
   );

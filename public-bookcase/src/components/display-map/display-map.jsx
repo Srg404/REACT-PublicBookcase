@@ -1,18 +1,28 @@
 import 'leaflet/dist/leaflet.css';
 import './display-map.scss';
 
+import { useContext } from 'react';
 import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { iconCustom } from './icon-custom';
+import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 
-function DisplayMap({ status, data }) {
+function DisplayMap({ status }) {
 
-  const MarkersJSX = data.map(
+  const { result } = useContext(BookcaseContext);
+  const { setContextActive } = useContext(BookcaseContext);
+
+  function handleClick(recordid) {
+    setContextActive(recordid);
+  }
+
+  const MarkersJSX = result.map(
     (bookCase) => (
       <Marker
         key={bookCase.recordid}
         position={bookCase.fields.geo_point_2d}
         icon={iconCustom}
+        eventHandlers={{ click: () => handleClick(bookCase.recordid) }}
       ></Marker>
     )
   );
@@ -41,13 +51,8 @@ function DisplayMap({ status, data }) {
   )
 }
 
-DisplayMap.defaultProps = {
-  data: []
-}
-
 DisplayMap.propTypes = {
-  status: PropTypes.string.isRequired,
-  data: PropTypes.array
+  status: PropTypes.string.isRequired
 }
 
 export default DisplayMap;

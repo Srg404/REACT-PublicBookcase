@@ -7,4 +7,10 @@ const iconCustom = new L.Icon({
     iconAnchor: [16, 40],
 });
 
-export { iconCustom };
+const iconCustomActive = new L.Icon({
+    iconUrl: pinImg,
+    iconSize: [40, 50],
+    iconAnchor: [20, 50],
+});
+
+export { iconCustom, iconCustomActive };

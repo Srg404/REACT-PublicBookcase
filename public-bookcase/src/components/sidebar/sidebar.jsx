@@ -1,44 +1,47 @@
 import './sidebar.scss';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types'
 import ItemList from '../item-list/item-list';
 import SearchList from '../search-list/search-list';
+import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 
 function Sidebar({ status, data }) {
-  
-  const [searchValue, setSearchValue] = useState(''); 
-  const [resultData, setResultData] = useState(data); 
-  
+
+  const [searchValue, setSearchValue] = useState('');
+  const { result, setContextResult } = useContext(BookcaseContext);
+
   useEffect(() => {
-    setResultData(data);
+    setContextResult(data);
+    // TODO : find solution for resolve this eslint alert
+    // eslint-disable-next-line
   }, [data]);
 
-  const ListJSX = resultData.map(
+  const ListJSX = result.map(
     (bookCase) => (
       <ItemList
         key={bookCase.recordid}
+        id={bookCase.recordid}
         name={bookCase.fields.name}
       />
-
     )
   );
 
   const searchFilter = (e) => {
-      const testValue = e.target.value;
-      if (testValue !== '') {
-        const results = data.filter((item) => {
-          return item.fields.name.toLowerCase().includes(testValue.toLowerCase());
-        });
-        setResultData(results);
-      } else {
-        setResultData(data);
-      }
-      setSearchValue(testValue);
+    const testValue = e.target.value;
+    if (testValue !== '') {
+      const results = data.filter((item) => {
+        return item.fields.name.toLowerCase().includes(testValue.toLowerCase());
+      });
+      setContextResult(results);
+    } else {
+      setContextResult(data);
+    }
+    setSearchValue(testValue);
   }
 
   const searchReset = () => {
-    setResultData(data);
+    setContextResult(data);
     setSearchValue('');
   }
 
@@ -57,11 +60,11 @@ function Sidebar({ status, data }) {
   return (
     <div className="sidebar">
       <div className="list-bookcase">
-        <SearchList 
-          searchValue={searchValue} 
-          searchFilter={searchFilter} 
+        <SearchList
+          searchValue={searchValue}
+          searchFilter={searchFilter}
           searchReset={searchReset}
-          />
+        />
         <ul >
           {ListJSX}
         </ul>

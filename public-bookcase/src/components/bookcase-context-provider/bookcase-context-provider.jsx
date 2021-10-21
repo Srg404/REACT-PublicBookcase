@@ -1,14 +1,23 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
 export const BookcaseContext = createContext();
 
-export const BookcaseContextProvider = ({children}) => {
-    const test = 'Hello World !';
-    return (
-        <BookcaseContext.Provider value={{ test }}>
-        	{children}
-        </BookcaseContext.Provider>
-    );
+export const BookcaseContextProvider = ({ children }) => {
+  const [result, setResult] = useState([]);
+  const setContextResult = (value) => {
+    setResult(value);
+  }
+  const [active, setActive] = useState('');
+  const setContextActive = (value) => {
+    setActive(value);
+  }
+  return (
+    <BookcaseContext.Provider value={
+      { result, setContextResult, active, setContextActive }
+    }>
+      {children}
+    </BookcaseContext.Provider>
+  );
 }
 
 export default BookcaseContextProvider;

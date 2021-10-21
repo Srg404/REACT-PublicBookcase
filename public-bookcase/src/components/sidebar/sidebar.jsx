@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import ItemList from '../item-list/item-list';
 import SearchList from '../search-list/search-list';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
+import Loading from '../loading/loading';
 
 function Sidebar({ status, data }) {
 
@@ -16,7 +17,6 @@ function Sidebar({ status, data }) {
     // TODO : find solution for resolve this eslint alert
     // eslint-disable-next-line
   }, [data]);
-
 
   const onHover = (value) => {
     let results = [];
@@ -64,15 +64,9 @@ function Sidebar({ status, data }) {
     setSearchValue('');
   }
 
-  if (status === 'waiting') return (
+  if (status !== 'done') return (
     <div className="sidebar">
-      <p>Chargement...</p>
-    </div>
-  );
-
-  if (status === 'error') return (
-    <div className="sidebar">
-      <p>Une erreur malencontrueuse c'est produit veuillez recharger la page ! </p>
+      <Loading status={status} />
     </div>
   );
 

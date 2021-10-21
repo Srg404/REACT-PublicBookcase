@@ -31,6 +31,12 @@
   border: 1px solid $text-color;
   border-radius: 5px;
   background: $text-color;
+  .loading {
+    background: rgba($text-color, 0.75);
+    i {
+      animation: rotate 2s linear infinite;
+    }
+  }
 }
 @keyframes rotate {
   0% {
@@ -40,9 +46,4 @@
     transform: rotate(360deg);
   }
 }
-.loading {
-  background: rgba($text-color, 0.75);
-  i {
-    animation: rotate 2s linear infinite;
-  }
-}
+

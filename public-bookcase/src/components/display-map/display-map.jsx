@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { iconCustom, iconCustomActive } from './icon-custom';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
+import Loading from '../loading/loading';
 
 function DisplayMap({ status }) {
 
@@ -27,15 +28,9 @@ function DisplayMap({ status }) {
     )
   );
 
-  if (status === 'waiting') return (
+  if (status !== 'done') return (
     <div className="display-map">
-      <p>Chargement...</p>
-    </div>
-  );
-
-  if (status === 'error') return (
-    <div className="display-map">
-      <p>Une erreur malencontreuse c'est produit, veuillez recharger la page !</p>
+      <Loading status={status} />
     </div>
   );
 

@@ -1,0 +1,30 @@
+@import "../../assets/scss/abstracts.scss";
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($text-color, 0.25);
+  .waiting{
+    font-size: 60px;
+    i {
+      animation: rotate 2s linear infinite;
+    }
+  }
+  .error{
+    font-size: 16px;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

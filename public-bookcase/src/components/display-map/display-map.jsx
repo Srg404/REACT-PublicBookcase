@@ -1,7 +1,7 @@
 import 'leaflet/dist/leaflet.css';
 import './display-map.scss';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { iconCustom, iconCustomActive } from './icon-custom';
@@ -12,6 +12,7 @@ function DisplayMap({ status }) {
 
   const { result } = useContext(BookcaseContext);
   const { setContextActive } = useContext(BookcaseContext);
+  const [ mouseOver, setMouseOver] = useState(null);
 
   function handleClick(recordid,name) {
     setContextActive({
@@ -25,8 +26,12 @@ function DisplayMap({ status }) {
       <Marker
         key={bookCase.recordid}
         position={bookCase.fields.geo_point_2d}
-        icon={bookCase.active ? iconCustomActive : iconCustom}
-        eventHandlers={{ click: () => handleClick(bookCase.recordid,bookCase.fields.name) }}
+        icon={(bookCase.active || (mouseOver === bookCase.recordid)) ? iconCustomActive : iconCustom}
+        eventHandlers={{ 
+          click: () => handleClick(bookCase.recordid,bookCase.fields.name),
+          mouseover: () => setMouseOver(bookCase.recordid),
+          mouseout: () => setMouseOver(null),
+        }}
       ></Marker>
     )
   );

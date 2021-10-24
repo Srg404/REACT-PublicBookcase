@@ -5,15 +5,20 @@ import RowHistory from './row-history';
 
 function BookcaseHistory({ data }) {
   
-  const rows = data.map((element) => (
-    <RowHistory 
-      key={element.title}
-      title={element.title}
-      author={element.author}
-      dateIn={element.dateIn}
-      dateOut={element.dateOut}
-      />
-  ));
+  const rows = data.map((element) => {
+    if (element.dateOut) {
+      return (
+        <RowHistory 
+          key={element.id}
+          title={element.title}
+          author={element.author}
+          dateIn={element.dateIn}
+          dateOut={element.dateOut}
+          />)
+    } else {
+      return false
+  }
+  }).reverse();
 
   return (
     <Table>

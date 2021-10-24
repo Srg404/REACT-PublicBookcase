@@ -1,3 +1,20 @@
-.tr-add td{
-    background: #e9ecef
+.bookcase {
+    position: relative;
+}
+.row-add{
+    position: relative;
+    background: #e9ecef;
+    padding: 10px;
+    display: flex;
+    .input-wrapper{
+        flex-grow: 2;
+        & + .input-wrapper{
+            margin: 0 10px;
+        }
+    }
+    .button-wrapper{
+        button{
+            height: 100%;
+        }
+    }
 }

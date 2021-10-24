@@ -1,54 +1,53 @@
 import './bookcase.scss';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Tabs, Tab } from '@mantine/core';
 import BookcaseContent from './content';
 import BookcaseHistory from './history';
+import Parse from 'parse/dist/parse.min.js';
 
 function Bookcase({ recordid }) {
 
+  const [data, setData] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
 
-  const elementsIn = [
-    { title: 'My little Pony', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My Pony', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Dog', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Cat', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Horse', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Fish', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Chicken', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Dino', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Frog', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Bird', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Whale', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Rabbit', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Octopus', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Pig', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Cow', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Bull', author: 'John Doe', dateIn: '10/10/20' },
-    { title: 'My little Roster', author: 'John Doe', dateIn: '10/10/20' }
-  ];
+  async function fetchBookCase(recordid) {
+    const query = new Parse.Query('BookCase');
+    query.equalTo('recordid', recordid);
+    let bookCase = await query.find();
+    setData(bookCase);
+    
+  }
 
-  const elementsOut = [
-    { title: 'My little Pony', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My little', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My Pony', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My little Dog', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My little Cat', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My little Horse', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My little Fish', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' },
-    { title: 'My little Chicken', author: 'John Doe', dateIn: '10/10/20', dateOut: '10/10/20' }
-  ];
+  const myData = data.map((item) => {
+    return {
+      id : item.id,
+      recordid: item.get('recordid'),
+      title: item.get('title'),
+      author: item.get('author'),
+      dateIn: item.get('dateIn'),
+      dateOut: item.get('dateOut')
+    }
+  });
+  
+  console.log(myData);
+
+  useEffect(() => {
+    fetchBookCase(recordid);
+  },[recordid])
+
+  const OnResponse = () => {
+    fetchBookCase(recordid);
+  }
 
   return (
     <div className="bookcase">
       <Tabs active={activeTab} onTabChange={setActiveTab}>
         <Tab label="Dans la boite">
-          <BookcaseContent data={elementsIn}/>
+          <BookcaseContent data={myData} recordid={recordid} onResponse={OnResponse} />
         </Tab>
         <Tab label="Historique de la boite">
-          <BookcaseHistory data={elementsOut}/>
+          <BookcaseHistory data={myData} />
         </Tab>
       </Tabs>
     </div>
@@ -56,7 +55,7 @@ function Bookcase({ recordid }) {
 }
 
 Bookcase.propTypes = {
-  recordid: PropTypes.string.isRequired
+  recordid: PropTypes.string
 }
 
 export default Bookcase;

@@ -10,7 +10,8 @@ $font-script: cursive;
 $link-color: #337ab7;
 
 $text-color: #333333;
-$main-color: rgb(3, 83, 120);
+$main-color: #1c7ed6
+;
 $main-color-alpha: rgb(109, 163, 199);
 
 $alert: #ff5252;
@@ -34,8 +35,9 @@ $max-width: 1140px !default;
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-  "smaller": 520px,
-  "small": 769px,
-  "medium": 992px,
-  "large": 1200px,
+  "xs": 540px,
+  "sm": 720px,
+  "md": 960px,
+  "lg": 1140px,
+  "xl": 1320px,
 ) !default;

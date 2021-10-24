@@ -17,16 +17,11 @@ body{
   font-family: $font-stack;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #8BC6EC;
-  background-image: linear-gradient(135deg, $white 0%, lighten($main-color-alpha, 20%) 35%, $main-color-alpha 65%, $main-color 100%);  
-  ;
+  background-color: #228be6;
+  background-image: linear-gradient(135deg, #228be6 0%, #15aabf 100%);
   color: $text-color;
   font-size: 16px;
   line-height: 1.2em;
-}
-
-button{
-  cursor: pointer;
 }
 
 a{
@@ -35,6 +30,16 @@ a{
   &:active,
   &:focus {
     text-decoration: underline; 
+  }
+}
+
+a[type=button],
+button{
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none; 
   }
 }
 
@@ -55,14 +60,14 @@ img{
 
 .onlyDesktop{
   display: block;
-  @include respond-to(small) {
+  @include respond-to(sm) {
     display: none;
   }
 }
 
 .onlyMobile{
   display: none;
-  @include respond-to(small) {
+  @include respond-to(sm) {
     display: block;
   }
 }

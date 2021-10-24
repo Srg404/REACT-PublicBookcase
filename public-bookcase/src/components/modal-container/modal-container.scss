@@ -1,52 +1,17 @@
 @import '../../assets/scss/abstracts.scss';
 
-.title {
-  overflow: hidden;
-  padding-top: 2em;
-  font-size: 7px;
-  @include respond-to(sm) {
-    font-size: 14px;
+.modal-header{
+  display:flex;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $main-color;
+  h1{
+    flex-grow: 2;
+    color: $main-color;
+    text-transform: uppercase;
   }
-  h1 {
-    line-height: 1em;
-    border: solid $text-color;
-    border-width: 0 0.45em 0.45em;
-    position: relative;
-    padding: 0 1.5em;
-    strong {
-      display: inline-block;
-      line-height: 1em;
-      position: relative;
-      margin-top: 0;
-      font-weight: 800;
-      &::before {
-        content: "";
-        border: solid $text-color;
-        border-width: 0.45em 0 0;
-        width: 1000%;
-        position: absolute;
-        right: 105%;
-        top: 0;
-      }
-      &::after {
-        content: "";
-        border: solid $text-color;
-        border-width: 0.45em 0 0;
-        width: 1000%;
-        position: absolute;
-        left: 105%;
-        top: 0;
-      }
-      & > span {
-        text-transform: uppercase;
-        font-size: 3em;
-      }
-    }
-    & > span {
-      font-size: 1em;
-      display: block;
-      font-weight: 300;
-      padding: 0.5em 0;
-    }
+  button{
+    background: none;
+    border: none;
   }
 }

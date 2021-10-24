@@ -1,8 +1,11 @@
-// import './modal-container.scss';
+import './modal-container.scss';
 
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 import { useEffect, useContext, useState } from 'react';
-import { Modal, Button } from '@mantine/core';
+import { Modal } from '@mantine/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle, faBook } from '@fortawesome/free-solid-svg-icons'
+import Bookcase from '../bookcase/bookcase';
 
 function ModalContainer() {
 
@@ -11,7 +14,6 @@ function ModalContainer() {
 
   useEffect(() => {
     if (active.recordid) {
-      console.log(`💥 Ceci est un clic sur ${active.name} (${active.recordid}) 💥`);
       setOpened(true)
     }
   }, [active]);
@@ -20,10 +22,18 @@ function ModalContainer() {
     <Modal
       hideCloseButton
       opened={opened}
-      size="full"
+      size="80%"
     >
-      {active.name}
-      <Button onClick={() => setOpened(false)}>close Modal</Button>
+      <header className="modal-header">
+        <h1><FontAwesomeIcon icon={faBook} size="1x" /> {active.name}</h1>
+        <button
+          onClick={() => setOpened(false)}
+          aria-describedby="close modal"
+        >
+          <FontAwesomeIcon icon={faTimesCircle} size="2x" />
+        </button>
+      </header>
+      <Bookcase recordid={active.recordid} />
     </Modal>
   );
 }

@@ -9,6 +9,8 @@ function SearchList({ searchValue, searchFilter, searchReset }) {
   const rightSection = searchValue !== "" && (
     <FontAwesomeIcon 
       icon={faTimes} 
+      role="button"
+      aria-describedby="reset Address"
       onClick={searchReset}
     />
   )

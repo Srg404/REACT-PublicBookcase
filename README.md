@@ -31,6 +31,7 @@ Personnal React project just for fun !!!
 
 - [**Axios**](https://github.com/axios/axios) - Promise based HTTP client for the browser.
 - [**Leaflet**](https://leafletjs.com/) - Leaflet is a JavaScript library for interactive maps, this library use [Open Street Map](https://www.openstreetmap.org/). 
+- [**Mantine**](https://mantine.dev) - A fully featured React components library.
 - [**FontAwesome**](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react) - Font Awesome is a font icons library. 
 - [**Moment**](https://momentjs.com/) - Moment is a library for Parse, validate, manipulate, and display dates and times in JavaScript.
 - [**Parse**](https://parseplatform.org/) - This library is use for interact with the back-end back4app.

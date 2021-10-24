@@ -1,27 +1,30 @@
-import './search-list.scss';
-
+// import './search-list.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { Input } from '@mantine/core';
 import PropTypes from 'prop-types';
 
 function SearchList({ searchValue, searchFilter, searchReset }) {
 
+  const rightSection = searchValue !== "" && (
+    <FontAwesomeIcon 
+      icon={faTimes} 
+      onClick={searchReset}
+    />
+  )
   return (
     <div className="search">
-      <input
+      <Input
         type="search"
         className="form-search"
         id="search-list"
         aria-describedby="search Address"
         placeholder="Recherche par adresse"
+        icon={<FontAwesomeIcon icon={faSearch} />}
         value={searchValue}
         onChange={searchFilter}
+        rightSection={rightSection} 
       />
-      <button
-        className="reset"
-        onClick={searchReset}
-      >
-        <i className="fas fa-times"></i>
-        <span>Effacer</span>
-      </button>
     </div>
   );
 }

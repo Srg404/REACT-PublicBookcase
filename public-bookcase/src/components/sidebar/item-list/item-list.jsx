@@ -1,4 +1,7 @@
 import './item-list.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
+import { Button } from '@mantine/core';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { BookcaseContext } from '../../bookcase-context-provider/bookcase-context-provider';
@@ -16,16 +19,16 @@ function ItemList({ name, recordid, onHover }) {
   return (
     <li>
       <div 
-        className="element-list"
+        className="item-list"
         >
-        <i className="fas fa-book"></i>
-        <span>{name}</span>
-        <button 
+        <Button 
           onClick={handleClick}
           onMouseOver={() => onHover(recordid) }
           onMouseOut={() => onHover(null) }
           title="Voir"
-          >Voir</button>
+          leftIcon={<FontAwesomeIcon icon={faBook} />}
+          fullWidth
+          >{name}</Button>
       </div>
     </li>
   );

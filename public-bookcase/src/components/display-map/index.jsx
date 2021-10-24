@@ -1,12 +1,12 @@
 import 'leaflet/dist/leaflet.css';
-import './display-map.scss';
+// import './display-map.scss';
 
 import { useContext, useState } from 'react';
-import { LoadingOverlay } from '@mantine/core';
 import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { iconCustom, iconCustomActive } from './icon-custom';
-import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
+import { BookcaseContext } from '../bookcase-context-provider';
+import Loading from '../loading/loading';
 
 function DisplayMap({ status }) {
 
@@ -38,7 +38,7 @@ function DisplayMap({ status }) {
 
   if (status !== 'done') return (
     <div className="display-map">
-      <LoadingOverlay visible={true} />
+      <Loading status={status} />
     </div>
   );
 
@@ -46,7 +46,6 @@ function DisplayMap({ status }) {
     <div className="display-map">
       <MapContainer center={[50.489, 5.095]} zoom={13} scrollWheelZoom={false}>
         <TileLayer
-          style={{color:'white'}}
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {MarkersJSX}

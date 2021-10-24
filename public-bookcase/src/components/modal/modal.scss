@@ -4,7 +4,7 @@
   overflow: hidden;
   padding-top: 2em;
   font-size: 7px;
-  @include respond-to(small) {
+  @include respond-to(sm) {
     font-size: 14px;
   }
   h1 {

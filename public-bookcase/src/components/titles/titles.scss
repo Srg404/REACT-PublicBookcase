@@ -4,12 +4,13 @@
   overflow: hidden;
   padding-top: 2em;
   font-size: 7px;
-  @include respond-to(small) {
+  text-align: center;
+  @include respond-to(sm) {
     font-size: 14px;
   }
   h1 {
     line-height: 1em;
-    border: solid $text-color;
+    border: solid currentcolor;
     border-width: 0 0.45em 0.45em;
     position: relative;
     padding: 0 1.5em;
@@ -21,7 +22,7 @@
       font-weight: 800;
       &::before {
         content: "";
-        border: solid $text-color;
+        border: solid currentcolor;
         border-width: 0.45em 0 0;
         width: 1000%;
         position: absolute;
@@ -30,7 +31,7 @@
       }
       &::after {
         content: "";
-        border: solid $text-color;
+        border: solid currentcolor;
         border-width: 0.45em 0 0;
         width: 1000%;
         position: absolute;

@@ -1,4 +1,4 @@
-import './modal.scss';
+// import './modal.scss';
 
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 import { useEffect, useContext } from 'react';

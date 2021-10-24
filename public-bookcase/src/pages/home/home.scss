@@ -7,43 +7,14 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+  color: white;
 }
 .home-container {
   width: 380px;
-  @include respond-to(small) {
+  @include respond-to(sm) {
     width: 600px;
   }
   max-width: 90%;
   height: auto;
-}
-
-.btn {
-  width: auto;
-  display: inline-block;
-  line-height: normal;
-  padding: 1em 2em;
-  margin: 1em 0;
-  color: $white;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
   text-align: center;
-  border: 1px solid $text-color;
-  border-radius: 5px;
-  background: $text-color;
-  .loading {
-    background: rgba($text-color, 0.75);
-    i {
-      animation: rotate 2s linear infinite;
-    }
-  }
 }
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-

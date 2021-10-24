@@ -1,11 +1,11 @@
 import './sidebar.scss';
 
 import { useState, useEffect, useContext } from 'react';
+import { LoadingOverlay } from '@mantine/core';
 import PropTypes from 'prop-types'
 import ItemList from './item-list/item-list';
 import SearchList from './search-list/search-list';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
-import Loading from '../loading/loading';
 
 function Sidebar({ status, data }) {
 
@@ -66,7 +66,7 @@ function Sidebar({ status, data }) {
 
   if (status !== 'done') return (
     <div className="sidebar">
-      <Loading status={status} />
+       <LoadingOverlay visible={true} />
     </div>
   );
 

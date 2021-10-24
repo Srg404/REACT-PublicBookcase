@@ -39,7 +39,7 @@ function Sidebar({ status, data }) {
     (bookCase) => (
       <ItemList
         key={bookCase.recordid}
-        id={bookCase.recordid}
+        recordid={bookCase.recordid}
         name={bookCase.fields.name}
         onHover={onHover}
       />

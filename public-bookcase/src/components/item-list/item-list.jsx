@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 
-function ItemList({ name, id, onHover }) {
+function ItemList({ name, recordid, onHover }) {
 
   const { setContextActive } = useContext(BookcaseContext);
   function handleClick() {
-    setContextActive(id);
+    setContextActive({
+      recordid: recordid,
+      name: name
+    });
   }
 
   return (
@@ -19,7 +22,7 @@ function ItemList({ name, id, onHover }) {
         <span>{name}</span>
         <button 
           onClick={handleClick}
-          onMouseOver={() => onHover(id) }
+          onMouseOver={() => onHover(recordid) }
           onMouseOut={() => onHover(null) }
           title="Voir"
           >Voir</button>
@@ -34,7 +37,7 @@ ItemList.defaultProps = {
 
 ItemList.propTypes = {
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  recordid: PropTypes.string.isRequired,
   onHover: PropTypes.func
 }
 

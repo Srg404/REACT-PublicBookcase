@@ -13,8 +13,11 @@ function DisplayMap({ status }) {
   const { result } = useContext(BookcaseContext);
   const { setContextActive } = useContext(BookcaseContext);
 
-  function handleClick(recordid) {
-    setContextActive(recordid);
+  function handleClick(recordid,name) {
+    setContextActive({
+      recordid: recordid,
+      name: name
+    });
   }
 
   const MarkersJSX = result.map(
@@ -23,7 +26,7 @@ function DisplayMap({ status }) {
         key={bookCase.recordid}
         position={bookCase.fields.geo_point_2d}
         icon={bookCase.active ? iconCustomActive : iconCustom}
-        eventHandlers={{ click: () => handleClick(bookCase.recordid) }}
+        eventHandlers={{ click: () => handleClick(bookCase.recordid,bookCase.fields.name) }}
       ></Marker>
     )
   );

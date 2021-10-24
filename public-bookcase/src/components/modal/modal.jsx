@@ -8,8 +8,8 @@ function Modal() {
   const { active } = useContext(BookcaseContext);
 
   useEffect(() => {
-    if (active) {
-      console.log(`💥 Ceci est un clic sur ${active} 💥`);
+    if (active.recordid) {
+      console.log(`💥 Ceci est un clic sur ${active.name} (${active.recordid}) 💥`);
     }
   }, [active]);
 

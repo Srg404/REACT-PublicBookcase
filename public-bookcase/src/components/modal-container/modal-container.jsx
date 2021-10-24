@@ -2,7 +2,7 @@
 
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 import { useEffect, useContext, useState } from 'react';
-import { Modal } from '@mantine/core';
+import { Modal, Button } from '@mantine/core';
 
 function ModalContainer() {
 
@@ -18,12 +18,12 @@ function ModalContainer() {
 
   return (
     <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        title={active.name}
-        size="full"
-      >
-      
+      hideCloseButton
+      opened={opened}
+      size="full"
+    >
+      {active.name}
+      <Button onClick={() => setOpened(false)}>close Modal</Button>
     </Modal>
   );
 }

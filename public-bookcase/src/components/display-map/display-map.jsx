@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { LoadingOverlay } from '@mantine/core';
 import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import { iconCustom, iconCustomActive } from './icon-custom';
+import { markerCustom, markerCustomActive } from './marker-custom';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 
 function DisplayMap({ status }) {
@@ -26,7 +26,7 @@ function DisplayMap({ status }) {
       <Marker
         key={bookCase.recordid}
         position={bookCase.fields.geo_point_2d}
-        icon={(bookCase.active || (mouseOver === bookCase.recordid)) ? iconCustomActive : iconCustom}
+        icon={(bookCase.active || (mouseOver === bookCase.recordid)) ? markerCustomActive : markerCustom}
         eventHandlers={{ 
           click: () => handleClick(bookCase.recordid,bookCase.fields.name),
           mouseover: () => setMouseOver(bookCase.recordid),

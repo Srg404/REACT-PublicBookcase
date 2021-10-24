@@ -2,8 +2,8 @@ import './sidebar.scss';
 
 import { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types'
-import ItemList from '../item-list/item-list';
-import SearchList from '../search-list/search-list';
+import ItemList from './item-list/item-list';
+import SearchList from './search-list/search-list';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 import Loading from '../loading/loading';
 

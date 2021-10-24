@@ -1,7 +1,7 @@
 import './item-list.scss';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
+import { BookcaseContext } from '../../bookcase-context-provider/bookcase-context-provider';
 
 function ItemList({ name, recordid, onHover }) {
 

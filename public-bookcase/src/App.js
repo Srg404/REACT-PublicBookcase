@@ -1,5 +1,6 @@
 import './app.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useViewportSize } from '@mantine/hooks';
 import HomePage from './pages/home/home';
 import AboutPage from './pages/about/about';
 import Navigation from './components/navigation/navigation';
@@ -7,6 +8,7 @@ import ErrorPage from './pages/error/error';
 import MapPage from './pages/map/map';
 import Parse from 'parse/dist/parse.min.js';
 import { parseApplicationId, parseJavascriptId  } from './utils/keys'
+import MobileNavigation from './components/navigation/mobile-navigation';
 
 const PARSE_APPLICATION_ID = parseApplicationId;
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
@@ -15,6 +17,9 @@ Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
+
+  const { width } = useViewportSize();
+
   return (
     <div id="app" className="App">
       <Router>
@@ -32,7 +37,8 @@ function App() {
             <ErrorPage />
           </Route>
         </Switch>
-        <Navigation />
+        {(width > 720) ? <Navigation /> : <MobileNavigation />}
+        
       </Router>
     </div>
   );

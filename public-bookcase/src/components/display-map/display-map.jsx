@@ -7,12 +7,14 @@ import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { markerCustom, markerCustomActive } from './marker-custom';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
+import { useViewportSize } from '@mantine/hooks';
 
 function DisplayMap({ status }) {
 
   const { result } = useContext(BookcaseContext);
   const { setContextActive } = useContext(BookcaseContext);
   const [ mouseOver, setMouseOver] = useState(null);
+  const { width } = useViewportSize();
 
   function handleClick(recordid,name) {
     setContextActive({
@@ -34,6 +36,10 @@ function DisplayMap({ status }) {
         }}
       ></Marker>
     )
+  );
+
+  if (width <= 720) return (
+    <></>
   );
 
   if (status !== 'done') return (

@@ -1,20 +1,45 @@
 .bookcase {
     position: relative;
-}
-.row-add{
-    position: relative;
-    background: #e9ecef;
-    padding: 10px;
-    display: flex;
-    .input-wrapper{
-        flex-grow: 2;
-        & + .input-wrapper{
-            margin: 0 10px;
+    .row-add{
+        position: relative;
+        background: #e9ecef;
+        padding: 10px;
+        display: flex;
+        .input-wrapper{
+            flex-grow: 2;
+            & + .input-wrapper{
+                margin: 0 10px;
+            }
+        }
+        .button-wrapper{
+            button{
+                height: 100%;
+            }
         }
     }
-    .button-wrapper{
-        button{
-            height: 100%;
+
+    .book{
+        border-bottom: 1px solid #e9ecef;
+        padding: 10px 0;
+        & > div{
+            margin: 3px 0 7px;
+        }
+        .title-row {
+            font-weight: bold;
+        }
+        h6{ 
+            font-weight: normal;
+            margin-bottom: 3px;
+        }
+        .dates{
+            display: flex;
+            flex-direction: row;
+            .date{
+                width: 50%;
+            }
+        }
+        .remove-book{
+            margin-top: 5px;
         }
     }
 }

@@ -3,6 +3,7 @@ import './modal-container.scss';
 import { BookcaseContext } from '../bookcase-context-provider/bookcase-context-provider';
 import { useEffect, useContext, useState } from 'react';
 import { Modal } from '@mantine/core';
+import { useViewportSize } from '@mantine/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle, faBook } from '@fortawesome/free-solid-svg-icons'
 import Bookcase from '../bookcase/bookcase';
@@ -11,6 +12,7 @@ function ModalContainer() {
 
   const { active } = useContext(BookcaseContext);
   const [opened, setOpened] = useState(false);
+  const { width } = useViewportSize();
 
   useEffect(() => {
     if (active.recordid) {
@@ -22,10 +24,10 @@ function ModalContainer() {
     <Modal
       hideCloseButton
       opened={opened}
-      size="80%"
+      size={(width <= 720) ? '100%' : '80%'}
     >
       <header className="modal-header">
-        <h1><FontAwesomeIcon icon={faBook} size="1x" /> {active.name}</h1>
+        <h1><FontAwesomeIcon icon={faBook} size="1x" /> <span>{active.name}</span></h1>
         <button
           onClick={() => setOpened(false)}
           aria-describedby="close modal"

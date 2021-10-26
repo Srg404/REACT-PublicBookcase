@@ -1,6 +1,6 @@
 import './bookcase.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark, faFeatherAlt, faCalendarPlus, faCalendarMinus } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark, faFeatherAlt, faSignInAlt, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment';
 import 'moment/locale/fr';
 
@@ -11,8 +11,8 @@ function RowHistory({ title, author, dateIn, dateOut }) {
     <tr>
       <td width="30%"><FontAwesomeIcon icon={faBookmark} /> {title}</td>
       <td width="30%"><FontAwesomeIcon icon={faFeatherAlt} /> {author}</td>
-      <td with="20%"><FontAwesomeIcon icon={faCalendarPlus} /> {moment(dateIn).format("DD MMMM YYYY")}</td>
-      <td with="20%"><FontAwesomeIcon icon={faCalendarMinus} /> {moment(dateOut).format("DD MMMM YYYY")}</td>
+      <td with="20%"><FontAwesomeIcon icon={faSignInAlt} /> {moment(dateIn).format("DD MMMM YYYY")}</td>
+      <td with="20%"><FontAwesomeIcon icon={faSignOutAlt} /> {moment(dateOut).format("DD MMMM YYYY")}</td>
     </tr>
   );
 }

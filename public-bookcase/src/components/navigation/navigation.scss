@@ -12,4 +12,22 @@
       color: #fff;
     }
   }
+  &.mobile-nav{
+    text-align: center;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    .mobile-link{
+      color: #1c7ed6;
+      background: white;
+      text-align: center;
+      font-size: 1em;
+      border-radius: 50%;
+      padding: 10px;
+      width: 3em;
+      height: 3em;
+      padding: .75em;
+    }
+    
+  } 
 }

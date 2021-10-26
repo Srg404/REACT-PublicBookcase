@@ -1,7 +1,7 @@
 import './bookcase.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark, faFeatherAlt, faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark, faFeatherAlt } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '@mantine/core';
 import Parse from 'parse/dist/parse.min.js';
 import moment from 'moment';

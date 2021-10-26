@@ -6,9 +6,11 @@
   position: relative;
   z-index: 1;
   background: $main-color;
+  padding-top: 50px;
   @include respond-to(sm) {
     flex-direction: row;
     width: 30%;
+    padding-top: 0;
   }
 }
 
